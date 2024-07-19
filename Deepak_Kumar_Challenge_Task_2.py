@@ -1,0 +1,56 @@
+#Python version - 3.8
+"""
+Ploblem Statement :-
+
+In the block of text below, find the longest substring that is the same in reverse (palindrome). As an example, 
+if the input was "Ilikeracecarsthatgofast" the answer would be "racecar".
+
+Fourscoreandsevenyearsagoourfaathersbroughtforthonthiscontainentanewnationconceiv
+edinzLibertyanddedicatedtothepropositionthatallmenarecreatedequalNowweareengagedi
+nagreahtcivilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlo
+ngendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionoft
+hatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisalto
+getherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotco
+nsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveco
+nsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongre
+memberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobed
+edicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedI
+tisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonore
+ddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevoti
+onthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGod
+shallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeoplesh
+allnotperishfromtheearth
+"""
+
+def longest_palindrome_substring(text):
+    n = len(text)
+    longest_palindrome = ""
+    
+    # Iterate through all possible substrings
+    for i in range(n):
+        for j in range(i+1, n+1):
+            substring = text[i:j]
+            if substring == substring[::-1] and len(substring) > len(longest_palindrome):
+                longest_palindrome = substring
+    
+    return longest_palindrome
+
+# Example usage:
+input_text = ["Ilikeracecarsthatgofast", """Fourscoreandsevenyearsagoourfaathersbroughtforthonthiscontainentanewnationconceiv
+edinzLibertyanddedicatedtothepropositionthatallmenarecreatedequalNowweareengagedi
+nagreahtcivilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlo
+ngendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionoft
+hatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisalto
+getherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotco
+nsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveco
+nsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongre
+memberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobed
+edicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedI
+tisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonore
+ddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevoti
+onthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGod
+shallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeoplesh
+allnotperishfromtheearth"""]
+for inp in input_text:
+    result = longest_palindrome_substring(inp)
+    print("Longest palindrome substring:", result)
